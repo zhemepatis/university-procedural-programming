@@ -1,10 +1,8 @@
 #include <stdio.h>
-#include <stdio.h>
 
 int getPositiveNumber(char *msg);
 
 int main() {
-
     int num = getPositiveNumber("Enter a positive integer: ");
     printf("Result: %d", num);
     
@@ -33,5 +31,4 @@ int getPositiveNumber(char *msg) {
     }
 
     return number;
-
 }
