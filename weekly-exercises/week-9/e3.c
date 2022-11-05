@@ -28,7 +28,6 @@ int main() {
     Stack smth;
     initStack(&smth);
 
-    // printf("%p", smth.arr);
     push(&smth, createPoint(0.0, 0.0));
     push(&smth, createPoint(4.0, 5.0));
     push(&smth, createPoint(-2.0, 3.0));
