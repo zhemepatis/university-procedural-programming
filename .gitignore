@@ -1,0 +1,10 @@
+*.exe
+*.txt
+
+assessments/
+weekly-exercises/week-1/
+weekly-exercises/week-2/
+weekly-exercises/week-3/
+weekly-exercises/week-4/
+weekly-exercises/week-5/
+weekly-exercises/week-6/
