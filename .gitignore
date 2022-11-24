@@ -1,6 +1,7 @@
 # File extensions to ignore
 *.exe
 *.txt
+*.o
 makefile
 
 # Directories to be ignored
