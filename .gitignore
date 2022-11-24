@@ -1,6 +1,7 @@
 # File extensions to ignore
 *.exe
 *.txt
+makefile
 
 # Directories to be ignored
 weekly-exercises/week-1/
