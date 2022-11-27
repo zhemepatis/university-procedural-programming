@@ -80,10 +80,3 @@ int checkAlgorithm(void sortFunction(), int *arr, int arrSize) {
 void printStats(char *algorithmName) {
     printf("%-16s | %-8d | %-7d \n", algorithmName, cmpCount, assignCount);
 }
-
-int printArr(int *arr, int arrSize) {
-    for(int i = 0; i< ARR_SIZE; ++i) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
