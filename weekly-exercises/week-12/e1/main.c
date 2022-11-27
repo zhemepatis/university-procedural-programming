@@ -10,7 +10,7 @@
 
 int checkAlgorithm(void sortFunction(), int *arr, int arrSize);
 int printArr(int *arr, int arrSize);
-void printStats();
+void printStats(char *algorithmName);
 
 int main() {
     // Creating array
