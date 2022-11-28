@@ -22,18 +22,24 @@ int checkNumberLayout(int *arr, int arrSize) {
     return 1;
 }
 
-int *createCustomArray() {
-    int arrSize;
+void createCustomArray(int *arr, int *arrSize) {
     printf("Enter array size: ");
-    scanf("%d", &arrSize);
+    scanf("%d", arrSize);
 
-    int arr[100]; 
-    for(int i = 0; i < arrSize; ++i) {
+    arr = malloc(*arrSize*sizeof(int));
+
+    for(int i = 0; i < *arrSize; ++i) {
         printf("\nEnter array element number %d: ", i);
         scanf("%d", &(arr[i]));
     }
+}
 
-    return arr;
+void printArray(int *arr, int arrSize) {
+    printf("Current array: ");
+    for(int i = 0; i < arrSize; ++i) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
 }
 
 // Bubble sort
