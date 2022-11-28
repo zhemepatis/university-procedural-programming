@@ -9,7 +9,6 @@
 #define ARR_MAX_VALUE 100
 
 int checkAlgorithm(void sortFunction(), int *arr, int arrSize);
-int printArr(int *arr, int arrSize);
 void printStats(char *algorithmName);
 
 int main() {

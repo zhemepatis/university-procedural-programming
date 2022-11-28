@@ -22,6 +22,20 @@ int checkNumberLayout(int *arr, int arrSize) {
     return 1;
 }
 
+int *createCustomArray() {
+    int arrSize;
+    printf("Enter array size: ");
+    scanf("%d", &arrSize);
+
+    int arr[100]; 
+    for(int i = 0; i < arrSize; ++i) {
+        printf("\nEnter array element number %d: ", i);
+        scanf("%d", &(arr[i]));
+    }
+
+    return arr;
+}
+
 // Bubble sort
 void bubbleSort(int *arr, int arrSize) {
     cmpCount = 0;

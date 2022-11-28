@@ -6,6 +6,7 @@
 
     void generateArray(int data[], int size, int low, int high);
     int checkNumberLayout(int *arr, int arrSize);
+    int *createCustomArray();
     
     void bubbleSort(int *arr, int arrSize);
 
