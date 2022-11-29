@@ -22,18 +22,6 @@ int checkNumberLayout(int *arr, int arrSize) {
     return 1;
 }
 
-void createCustomArray(int *arr, int *arrSize) {
-    printf("Enter array size: ");
-    scanf("%d", arrSize);
-
-    arr = malloc(*arrSize*sizeof(int));
-
-    for(int i = 0; i < *arrSize; ++i) {
-        printf("\nEnter array element number %d: ", i);
-        scanf("%d", &(arr[i]));
-    }
-}
-
 void printArray(int *arr, int arrSize) {
     printf("Current array: ");
     for(int i = 0; i < arrSize; ++i) {
