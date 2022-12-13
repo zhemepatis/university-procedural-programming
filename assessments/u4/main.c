@@ -17,7 +17,12 @@ int main() {
         switch (option) {
             case 1:
                 if(head != NULL) {
-                    printf("Warning\n");
+                    printf("WARNING: this option will delete all your current list data.\n");
+                    char *options[] = {"Yes", "No"};
+
+                    if(menu("Proceed?", 2, options) == 2)
+                        break;
+
                     emptyList(&head);
                 }
 

@@ -26,7 +26,7 @@ int menu(char *caption, int optNum, char **options) {
 }
 
 void printErr(char *err) {
-    printf("Error: %s.\n", err);
+    printf("ERROR: %s.\n", err);
 }
 
 int getInt(FILE *in, int *input) {
