@@ -6,7 +6,7 @@
 #define NUM_OF_OPTIONS 4
 
 int main() { 
-    element list;
+    node_t *head = NULL;
 
     char *options[] = {"Load list elements", "Print list elements", "Insert element", "Exit application"};
     int option = -1;
@@ -15,22 +15,31 @@ int main() {
 
         switch (option) {
             case 1:
-                if(loadElements(&list))
-                    emptyList(&list);
+                if(head != NULL) {
+                    printf("Warning\n");
+                    emptyList(&head);
+                }
+                loadList(&head);
                 break;
 
             case 2:
-                printf("List: ");
-                printList(list);
-                printf("\n");
+                printList(head);
                 break;
 
             case 3:
-                printf("To be continued\n");
+                printf("Enter criterea: ");
+                int criterea, value;
+                getInt(stdin, &criterea);
+                printf("Enter value: ");
+                getInt(stdin, &value);
+                insertNode(&head, criterea, value);
+                
                 break;
         }
     }
-    emptyList(&list);
+
+    if(head != NULL)
+        emptyList(&head);
 
     return 0;
 }

@@ -3,22 +3,35 @@
 #include "functions.h"
 #include "list.h"
 
-void initElement(element *list, int value) {
-    (*list).value = value;
-    (*list).next = NULL;
+node_t *createNode(int value) {
+    node_t *result = malloc(sizeof(node_t));
+    result->value = value;
+    result->next = NULL;
+    return result;
 }
 
-void addElement(element *list, int value) {
-    if(list->next != NULL) {
-        addElement(list->next, value);
-    }
-    else {
-        list->next = malloc(sizeof(element));
-        initElement(list->next, value);
-    }
+void addNode(node_t **head, node_t *node) {
+    node_t **temp = head;
+    
+    while(*temp != NULL)
+        temp = &((*temp)->next);
+
+    *temp = node;
 }
 
-int loadElements(element *list) {
+void insertNode(node_t **node, int criterea, int value) {
+    if((*node)->value == criterea) {
+        node_t *temp = createNode(value);
+        temp->next = *node;
+        *node = temp;
+        return;
+    }
+
+    if((*node)->next != NULL)
+        insertNode(&((*node)->next), criterea, value);
+}
+
+int loadList(node_t **head) {
     printf("Enter file name that contains list elements: ");
     char filename[256] = {0};
     scanf("%s", filename);
@@ -29,7 +42,6 @@ int loadElements(element *list) {
         return 1;
     }
 
-    int listInitialised = 0;
     while(!feof(in)) {
         int value;
         if(!getInt(in, &value)) {
@@ -37,28 +49,34 @@ int loadElements(element *list) {
             return 1;
         }
 
-        if(!listInitialised) {
-            initElement(list, value);
-            listInitialised = 1;
-            continue;
-        }
-
-        addElement(list, value);
+        node_t *temp = createNode(value);
+        addNode(head, temp);
     }
 
     return 0;
 }
 
-void emptyList(element *list) {
-    if(list->next != NULL) {
-        emptyList(list->next);
-    }
-    free(list);
+void emptyList(node_t **node) {
+    if((*node)->next != NULL)
+        emptyList(&((*node)->next));
+    
+    free(*node);
+    *node = NULL;
 }
 
-void printList(element list) {
-    printf("%d ", list.value);
+void printList(node_t *head) {
+    if(head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
 
-    if(list.next != NULL)
-        printList(*(list.next));
+    printf("List: ");
+
+    node_t *temp = head;
+    while(temp != NULL) {
+        printf("%d ", temp->value);
+        temp = temp->next;
+    }
+
+    printf("\n");
 }
