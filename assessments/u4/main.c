@@ -10,6 +10,7 @@ int main() {
 
     char *options[] = {"Load list elements", "Print list elements", "Insert element", "Exit application"};
     int option = -1;
+
     while(option != NUM_OF_OPTIONS) {
         option = menu("MENU", 4, options);
 
@@ -19,7 +20,9 @@ int main() {
                     printf("Warning\n");
                     emptyList(&head);
                 }
+
                 loadList(&head);
+                
                 break;
 
             case 2:
@@ -27,13 +30,18 @@ int main() {
                 break;
 
             case 3:
-                printf("Enter criterea: ");
                 int criterea, value;
-                getInt(stdin, &criterea);
-                printf("Enter value: ");
-                getInt(stdin, &value);
-                insertNode(&head, criterea, value);
                 
+                printf("Enter the value of the list element before which you want to insert the new element: ");
+                if(!getInt(stdin, &criterea))
+                    break;
+
+                printf("Enter value of new element: ");
+                if(!getInt(stdin, &value))
+                    break;
+
+                insertNode(&head, criterea, value);
+
                 break;
         }
     }

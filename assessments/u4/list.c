@@ -20,14 +20,14 @@ void addNode(node_t **head, node_t *node) {
 }
 
 void insertNode(node_t **node, int criterea, int value) {
-    if((*node)->value == criterea) {
+    if((*node) != NULL && (*node)->value == criterea) {
         node_t *temp = createNode(value);
         temp->next = *node;
         *node = temp;
         return;
     }
 
-    if((*node)->next != NULL)
+    if((*node) != NULL && (*node)->next != NULL)
         insertNode(&((*node)->next), criterea, value);
 }
 
