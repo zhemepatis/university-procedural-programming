@@ -4,6 +4,7 @@
 #include "list.h"
 
 #define NUM_OF_OPTIONS 4
+#define MAX_FILENAME_LENGTH 256
 
 int main() { 
     node_t *head = NULL;
@@ -26,7 +27,20 @@ int main() {
                     emptyList(&head);
                 }
 
-                loadList(&head);
+                printf("Enter file name that contains list elements: ");
+                char filename[MAX_FILENAME_LENGTH];
+                if(!getFilename(filename)) {
+                    printErr("something went wrong when getting filename");
+                    break;
+                }
+
+                FILE *in = openFile(filename, "r");
+                if(in == NULL) {
+                    printErr("unable locate the file");
+                    break;
+                }
+
+                loadList(in, &head);
                 
                 break;
 

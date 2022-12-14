@@ -31,21 +31,12 @@ void insertNode(node_t **node, int criterea, int value) {
         insertNode(&((*node)->next), criterea, value);
 }
 
-int loadList(node_t **head) {
-    printf("Enter file name that contains list elements: ");
-    char filename[256] = {0};
-    scanf("%s", filename);
-
-    FILE *in = fopen(filename, "r");
-    if(in == NULL) {
-        printErr("unable locate the file");
-        return 1;
-    }
-
+int loadList(FILE *in, node_t **head) {
     while(!feof(in)) {
         int value;
         if(!getInt(in, &value)) {
             printErr("unsuccessful attempt to load list elements. Process terminated");
+            emptyList(head);
             return 1;
         }
 

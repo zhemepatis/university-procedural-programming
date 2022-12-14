@@ -38,3 +38,17 @@ int getInt(FILE *in, int *input) {
 
     return 1;
 }
+
+int getFilename(char *filename) {
+    if(scanf("%s", filename) != 1) {
+        return 0;
+    }
+
+    return 1;
+}
+
+FILE *openFile(char *filename, char *mode) {
+    FILE *in = fopen(filename, mode);
+
+    return in;
+}
