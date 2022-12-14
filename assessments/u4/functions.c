@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "functions.h"
 
 int menu(char *caption, int optNum, char **options) {

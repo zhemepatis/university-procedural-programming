@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "functions.h"
-#include "list.h"
+#include "lists.h"
 
 #define NUM_OF_OPTIONS 4
-#define MAX_FILENAME_LENGTH 256
 
 int main() { 
     node_t *head = NULL;
@@ -30,7 +29,7 @@ int main() {
                 printf("Enter file name that contains list elements: ");
                 char filename[MAX_FILENAME_LENGTH];
                 if(!getFilename(filename)) {
-                    printErr("something went wrong when getting filename");
+                    printErr("something went wrong while getting filename");
                     break;
                 }
 
@@ -41,6 +40,7 @@ int main() {
                 }
 
                 loadList(in, &head);
+                fclose(in);
                 
                 break;
 
