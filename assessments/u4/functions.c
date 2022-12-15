@@ -7,14 +7,17 @@ int menu(char *caption, int optNum, char **options) {
     int option = 0;
 
     while(!optionIsValid) {
+        // Printing menu options
         printf("\n%s\n", caption);
         for(int i = 0; i < optNum; ++i)
             printf("%d. %s\n", i+1, options[i]);
 
+        // Getting user input
         printf("Enter option number: ");
         if(!getInt(stdin, &option))
             continue; 
 
+        // Validating user input
         if(option < 1 || option > optNum) {
             printErr("there is no such option");
             continue;

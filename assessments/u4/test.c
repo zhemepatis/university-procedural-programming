@@ -6,6 +6,7 @@
 #include "arrays.h"
 #include "lists.h"
 
+void convertList(node_t *head, int **arr, int *arrSize);
 void testAddNode();
 void testInsertElement();
 void testEmptyList();
@@ -21,6 +22,23 @@ int main() {
     testEmptyList();
 
     return 0;
+}
+
+void convertList(node_t *head, int **arr, int *arrSize) {
+    int tempNum = 0;
+    int *tempArr = NULL;
+
+    // Checking, whether next list node exist
+    // If it does, then new array element is created
+    while(head != NULL) {
+        ++tempNum;
+        tempArr = realloc(tempArr, tempNum*sizeof(int));
+        tempArr[tempNum-1] = head->value;
+        head = head->next;
+    }
+
+    *arr = tempArr;
+    *arrSize = tempNum;
 }
 
 void testAddNode() {

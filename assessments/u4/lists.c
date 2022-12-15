@@ -69,11 +69,13 @@ void emptyList(node_t **node) {
 }
 
 void printList(node_t *head) {
+    // Checking if list isn't empty
     if(head == NULL) {
         printf("List is empty.\n");
         return;
     }
 
+    // Printing list content
     printf("List: ");
 
     node_t *temp = head;
@@ -83,21 +85,4 @@ void printList(node_t *head) {
     }
 
     printf("\n");
-}
-
-void convertList(node_t *head, int **arr, int *arrSize) {
-    int tempNum = 0;
-    int *tempArr = NULL;
-
-    // Checking, whether next list node exist
-    // If it does, then new array element is created
-    while(head != NULL) {
-        ++tempNum;
-        tempArr = realloc(tempArr, tempNum*sizeof(int));
-        tempArr[tempNum-1] = head->value;
-        head = head->next;
-    }
-
-    *arr = tempArr;
-    *arrSize = tempNum;
 }

@@ -13,7 +13,6 @@
     int loadList(FILE *in, node_t **head);
     void emptyList(node_t **node);
     void printList(node_t *head);
-    void convertList(node_t *head, int **arr, int *arrSize);
 
 
 #endif 

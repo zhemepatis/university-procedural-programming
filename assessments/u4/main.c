@@ -16,6 +16,8 @@ int main() {
 
         switch (option) {
             case 1:
+                // Chekcing if list contains some data
+                // If it does, a warning is printed that the data will be deleted
                 if(head != NULL) {
                     printf("WARNING: this option will delete all your current list data.\n");
                     char *options[] = {"Yes", "No"};
@@ -26,6 +28,7 @@ int main() {
                     emptyList(&head);
                 }
 
+                // Getting name of the file where list data is stored
                 printf("Enter file name that contains list elements: ");
                 char filename[MAX_FILENAME_LENGTH];
                 if(!getFilename(filename)) {
@@ -33,12 +36,14 @@ int main() {
                     break;
                 }
 
+                // Opening the file
                 FILE *in = openFile(filename, "r");
                 if(in == NULL) {
                     printErr("unable locate the file");
                     break;
                 }
 
+                // Loading list, closing file
                 loadList(in, &head);
                 fclose(in);
                 
